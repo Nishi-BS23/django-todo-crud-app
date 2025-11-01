@@ -39,26 +39,31 @@ Django CRUD Project/
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 2. Run Migrations
+
 ```bash
 python manage.py migrate
 ```
 
 ### 3. Create Admin User (Optional)
+
 ```bash
 python manage.py createsuperuser
 ```
 
 ### 4. Start Server
+
 ```bash
 python manage.py runserver
 ```
 
 ### 5. Access the App
+
 - **Web Interface**: http://127.0.0.1:8000/
 - **REST API**: http://127.0.0.1:8000/todos/api/todos/
 - **Admin Panel**: http://127.0.0.1:8000/admin/
@@ -76,11 +81,13 @@ python manage.py runserver
 ### REST API Endpoints
 
 #### List All Todos
+
 ```http
 GET /todos/api/todos/
 ```
 
 #### Create Todo
+
 ```http
 POST /todos/api/todos/
 Content-Type: application/json
@@ -93,11 +100,13 @@ Content-Type: application/json
 ```
 
 #### Get Single Todo
+
 ```http
 GET /todos/api/todos/{id}/
 ```
 
 #### Update Todo
+
 ```http
 PUT /todos/api/todos/{id}/
 Content-Type: application/json
@@ -110,6 +119,7 @@ Content-Type: application/json
 ```
 
 #### Partial Update
+
 ```http
 PATCH /todos/api/todos/{id}/
 Content-Type: application/json
@@ -120,11 +130,13 @@ Content-Type: application/json
 ```
 
 #### Delete Todo
+
 ```http
 DELETE /todos/api/todos/{id}/
 ```
 
 #### Toggle Completion (Custom Action)
+
 ```http
 POST /todos/api/todos/{id}/toggle_complete/
 ```
@@ -145,6 +157,7 @@ class Todo(models.Model):
 ### Using cURL
 
 **Create Todo:**
+
 ```bash
 curl -X POST http://127.0.0.1:8000/todos/api/todos/ \
   -H "Content-Type: application/json" \
@@ -152,11 +165,13 @@ curl -X POST http://127.0.0.1:8000/todos/api/todos/ \
 ```
 
 **List Todos:**
+
 ```bash
 curl http://127.0.0.1:8000/todos/api/todos/
 ```
 
 **Update Todo:**
+
 ```bash
 curl -X PUT http://127.0.0.1:8000/todos/api/todos/1/ \
   -H "Content-Type: application/json" \
@@ -164,6 +179,7 @@ curl -X PUT http://127.0.0.1:8000/todos/api/todos/1/ \
 ```
 
 **Delete Todo:**
+
 ```bash
 curl -X DELETE http://127.0.0.1:8000/todos/api/todos/1/
 ```
@@ -198,6 +214,7 @@ response = requests.delete(f"{BASE_URL}1/")
 ## 🛠️ Best Practices Implemented
 
 ### 1. **REST API Design**
+
 - ✅ RESTful URL patterns
 - ✅ HTTP methods (GET, POST, PUT, PATCH, DELETE)
 - ✅ Proper status codes
@@ -205,6 +222,7 @@ response = requests.delete(f"{BASE_URL}1/")
 - ✅ Pagination support
 
 ### 2. **Django Best Practices**
+
 - ✅ Class-based views (ViewSet)
 - ✅ Model Meta options
 - ✅ URL namespacing
@@ -212,12 +230,14 @@ response = requests.delete(f"{BASE_URL}1/")
 - ✅ Clean code structure
 
 ### 3. **Security**
+
 - ✅ CSRF protection
 - ✅ CORS headers configuration
 - ✅ SQL injection prevention
 - ✅ XSS protection
 
 ### 4. **Code Quality**
+
 - ✅ DRY principle
 - ✅ Separation of concerns
 - ✅ Docstrings
@@ -234,6 +254,7 @@ response = requests.delete(f"{BASE_URL}1/")
 ## 🎨 Features Breakdown
 
 ### Web Interface
+
 - Simple, clean design
 - Responsive layout
 - Inline todo editing
@@ -241,6 +262,7 @@ response = requests.delete(f"{BASE_URL}1/")
 - Quick actions (toggle, edit, delete)
 
 ### REST API
+
 - Full CRUD operations
 - Browsable API interface
 - Pagination (10 items/page)
@@ -248,6 +270,7 @@ response = requests.delete(f"{BASE_URL}1/")
 - JSON responses
 
 ### Admin Panel
+
 - List display with filters
 - Search functionality
 - Inline editing
@@ -255,19 +278,22 @@ response = requests.delete(f"{BASE_URL}1/")
 
 ## 📚 Project Highlights
 
-**Simplicity**: 
+**Simplicity**:
+
 - Only 1 model
 - 5 fields
 - Minimal dependencies
 - Clean code
 
 **REST API**:
+
 - Django REST Framework ViewSet
 - Serializers for validation
 - Router for automatic URL generation
 - Browsable API interface
 
 **Best Practices**:
+
 - Class-based views
 - Environment configuration
 - Proper error handling
@@ -276,39 +302,42 @@ response = requests.delete(f"{BASE_URL}1/")
 ## 🔍 API Response Format
 
 **List Response:**
+
 ```json
 {
-    "count": 2,
-    "next": null,
-    "previous": null,
-    "results": [
-        {
-            "id": 1,
-            "title": "Learn Django",
-            "description": "Complete Django tutorial",
-            "completed": false,
-            "created_at": "2025-11-01T10:30:00Z",
-            "updated_at": "2025-11-01T10:30:00Z"
-        }
-    ]
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "title": "Learn Django",
+      "description": "Complete Django tutorial",
+      "completed": false,
+      "created_at": "2025-11-01T10:30:00Z",
+      "updated_at": "2025-11-01T10:30:00Z"
+    }
+  ]
 }
 ```
 
 **Single Todo Response:**
+
 ```json
 {
-    "id": 1,
-    "title": "Learn Django",
-    "description": "Complete Django tutorial",
-    "completed": false,
-    "created_at": "2025-11-01T10:30:00Z",
-    "updated_at": "2025-11-01T10:30:00Z"
+  "id": 1,
+  "title": "Learn Django",
+  "description": "Complete Django tutorial",
+  "completed": false,
+  "created_at": "2025-11-01T10:30:00Z",
+  "updated_at": "2025-11-01T10:30:00Z"
 }
 ```
 
 ## 🎯 URL Patterns
 
 **Web Interface:**
+
 - `/` → Redirects to `/todos/`
 - `/todos/` → List todos
 - `/todos/create/` → Create todo
@@ -317,6 +346,7 @@ response = requests.delete(f"{BASE_URL}1/")
 - `/todos/<id>/toggle/` → Toggle completion
 
 **REST API:**
+
 - `/todos/api/todos/` → List/Create
 - `/todos/api/todos/<id>/` → Retrieve/Update/Delete
 - `/todos/api/todos/<id>/toggle_complete/` → Toggle
@@ -324,6 +354,7 @@ response = requests.delete(f"{BASE_URL}1/")
 ## 🚀 Next Steps
 
 You can extend this app by adding:
+
 - User authentication
 - Due dates
 - Priority levels
@@ -413,37 +444,45 @@ Django CRUD Project/
 ### Installation
 
 1. **Clone or navigate to the project directory:**
+
    ```bash
    cd "c:\Users\BS00956\OneDrive - Brain Station 23\Desktop\BS1813 Personal\Django CRUD Project"
    ```
 
 2. **Activate the virtual environment:**
+
    ```bash
    .venv\Scripts\Activate.ps1
    ```
 
 3. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Create environment file:**
+
    ```bash
    copy .env.example .env
    ```
 
 5. **Run migrations:**
+
    ```bash
    python manage.py migrate
    ```
 
 6. **Create a superuser (for admin access):**
+
    ```bash
    python manage.py createsuperuser
    ```
+
    Follow the prompts to create your admin account.
 
 7. **Run the development server:**
+
    ```bash
    python manage.py runserver
    ```
@@ -457,11 +496,13 @@ Django CRUD Project/
 ### Managing Products
 
 1. **View All Products**
+
    - Navigate to "Products" from the navbar
    - Use search and filters to find specific products
    - Click on any product to view details
 
 2. **Create New Product**
+
    - Click "Add New Product" button
    - Fill in the required fields:
      - Name (required)
@@ -476,6 +517,7 @@ Django CRUD Project/
    - Click "Create Product"
 
 3. **Update Product**
+
    - Go to product detail page
    - Click "Edit Product" button
    - Update the fields
@@ -489,15 +531,18 @@ Django CRUD Project/
 ### Managing Categories
 
 1. **View All Categories**
+
    - Navigate to "Categories" from the navbar
    - View all categories with product counts
 
 2. **Create New Category**
+
    - Click "Add New Category" button
    - Enter category name and description
    - Click "Create Category"
 
 3. **View Category Products**
+
    - Click on any category card
    - View all products in that category
 
@@ -516,6 +561,7 @@ Django CRUD Project/
 ### Models
 
 **Product Model:**
+
 - Name, Description, SKU
 - Price (Decimal field)
 - Quantity (Integer)
@@ -526,6 +572,7 @@ Django CRUD Project/
 - Timestamps (auto)
 
 **Category Model:**
+
 - Name (Unique)
 - Description
 - Related products
@@ -576,27 +623,32 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 ## 🛡️ Best Practices Implemented
 
 1. **Code Organization**
+
    - Separate apps for different functionalities
    - Clean separation of concerns (MVT pattern)
    - Reusable components
 
 2. **Security**
+
    - Secret key in environment variables
    - CSRF protection enabled
    - SQL injection prevention (Django ORM)
    - XSS protection
 
 3. **Database**
+
    - Model indexing for performance
    - Proper field types and constraints
    - Cascade delete handling
 
 4. **Forms & Validation**
+
    - Server-side validation
    - Clean data methods
    - User-friendly error messages
 
 5. **UI/UX**
+
    - Responsive design
    - Consistent styling
    - Loading states
@@ -634,11 +686,13 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 ### Common Issues
 
 1. **Port already in use:**
+
    ```bash
    python manage.py runserver 8001
    ```
 
 2. **Static files not loading:**
+
    ```bash
    python manage.py collectstatic
    ```
